@@ -4,14 +4,54 @@
 // Include any default variable overrides here (though functions won't be available)
 $primary: #BF4342;
 $secondary: #A78A7F;
-$info: #E7D7C1;
-$dark: #8C1C13;
+$light: #E7D7C1;
+$danger: #8C1C13;
+$dark: #735751;
 $black: #0B2027;
 $font-family-sans-serif: 'Montserrat', sans-serif !default;
 $font-family-serif: 'Lora', serif !default;
+$font-family-monospace: 'Hind Madurai', monospace !default;
 
+$vr-border-width: 3px;
+$vr-border-color:$danger;
+$vr-border-radius: 0.25rem;
+$vr-border-align-self: start;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
 
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 // Then add additional custom code here
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Styles responsives pour un paragraphe
+.responsive-text {
+  font-size: 10px; // Taille par défaut
+
+  @include media-breakpoint-up(sm) { // >= 576px
+    font-size: 6px;
+  }
+
+  @include media-breakpoint-up(md) { // >= 768px
+    font-size: 10px;
+  }
+
+  @include media-breakpoint-up(lg) { // >= 992px
+    font-size: 14px;
+  }
+
+  @include media-breakpoint-up(xl) { // >= 1200px
+    font-size: 18px;
+  }
+}
