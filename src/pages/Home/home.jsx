@@ -1,8 +1,11 @@
+import CustomCarousel from "../../components/Carousel/Carousel"
+import Title from "../../components/Title/title";
+
 const Home = () => {
     return (
-        <div>
-        <h1>Bienvenue au Quai Antique</h1>
-        <button class="btn btn-primary">Coucou</button>
+        <div className="d-flex flex-column justify-content-center align-items-center w-100 h-100">
+            <CustomCarousel />
+            <Title />
         </div>
     )
     }

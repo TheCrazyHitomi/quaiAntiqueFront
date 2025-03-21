@@ -17,6 +17,7 @@ $vr-border-color:$danger;
 $vr-border-radius: 0.25rem;
 $vr-border-align-self: start;
 
+
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
@@ -29,11 +30,10 @@ $grid-breakpoints: (
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
+
 // Then add additional custom code here
 
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
+
 
 // Styles responsives pour un paragraphe
 .responsive-text {
@@ -55,3 +55,5 @@ $grid-breakpoints: (
     font-size: 18px;
   }
 }
+
+
