@@ -1,11 +1,9 @@
-import CustomCarousel from "../../components/Carousel/Carousel"
-import Title from "../../components/Title/title";
+import Hero from '../../components/Hero/hero';
 
 const Home = () => {
     return (
         <div className="d-flex flex-column justify-content-center align-items-center w-100 h-100">
-            <CustomCarousel />
-            <Title />
+            <Hero />
         </div>
     )
     }
