@@ -40,15 +40,15 @@ $grid-breakpoints: (
   font-size: 10px; // Taille par défaut
 
   @include media-breakpoint-up(sm) { // >= 576px
-    font-size: 6px;
-  }
-
-  @include media-breakpoint-up(md) { // >= 768px
     font-size: 10px;
   }
 
-  @include media-breakpoint-up(lg) { // >= 992px
+  @include media-breakpoint-up(md) { // >= 768px
     font-size: 14px;
+  }
+
+  @include media-breakpoint-up(lg) { // >= 992px
+    font-size: 16px;
   }
 
   @include media-breakpoint-up(xl) { // >= 1200px
@@ -59,22 +59,27 @@ $grid-breakpoints: (
 
 // Styles responsives pour un paragraphe
 .responsive-title {
-    font-size: 20px; // Taille par défaut
+    font-size: 14px;
+    font-weight: normal; // Taille par défaut
   
     @include media-breakpoint-up(sm) { // >= 576px
       font-size: 16px;
+      font-weight: normal;
     }
   
     @include media-breakpoint-up(md) { // >= 768px
       font-size: 18px;
+      font-weight: normal;
     }
   
     @include media-breakpoint-up(lg) { // >= 992px
       font-size: 20px;
+      font-weight: normal;
     }
   
     @include media-breakpoint-up(xl) { // >= 1200px
       font-size: 24px;
+      font-weight: normal;
     }
   }
   
