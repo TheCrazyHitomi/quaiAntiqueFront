@@ -24,7 +24,6 @@ hr {
         align-items: center;
         position: relative;
         overflow: hidden;
-
     }
 
     .carousel-control-prev,
@@ -41,10 +40,20 @@ hr {
 
     .carousel-item {
         width: 100%;
-        height: 25%;
+        height: 100%;
         position: absolute;
         }
 
+        .carousel-item::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #B6AC97;
+            opacity: .5;
+        }
 
 }
 

@@ -17,7 +17,7 @@ const Header = () => {
             <Nav.Link className="text-white fw-lighter" href="/">Notre Carte</Nav.Link>
             <Nav.Link className="text-white fw-lighter" href="/">Réservation</Nav.Link>
             <Nav.Link className="text-white fw-lighter" href="/">Mon Compte</Nav.Link>
-            <Nav.Link className="text-light fw-medium " href="/">Connexion</Nav.Link>
+            <Nav.Link className="text-light fw-medium " href="/connexion">Connexion</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

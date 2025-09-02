@@ -1,9 +1,14 @@
-const Galerie = () => {
+import Galerie from "../../components/galerie/galerie";
+import TitleGalerie from "../../components/Title/title-galerie";
+
+
+const GaleriePage = () => {
     return (
-        <div>
-            <h1>Galerie</h1>
+        <div className="my-5">
+            <TitleGalerie />
+            <Galerie />
         </div>
     )
 }
 
-export default Galerie;
+export default GaleriePage;
