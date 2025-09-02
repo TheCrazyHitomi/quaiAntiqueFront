@@ -1,9 +1,9 @@
-import ConnexionForm from "../components/connexionForm/connexionForm";
-import ConnexionTitle from "../components/Title/title-connexion";
+import ConnexionTitle from "../../components/Title/title-connexion"
+import ConnexionForm from "../../components/connexionForm/connexionForm";
 
 const Signin = () => {
     return (
-        <div  className="my-5">
+        <div>
             <ConnexionTitle />
             <div className="d-flex justify-content-center my-5">
                 <ConnexionForm />

@@ -25,6 +25,11 @@ function SignupForm() {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Mot de passe</Form.Label>
+                <Form.Control type="password" id= "PasswordInput" placeholder="Mot de passe" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPasswordValidated">
+                <Form.Label>Validez votre mot de passe</Form.Label>
                 <Form.Control type="password" id= "validatedPasswordInput" placeholder="Mot de passe" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">

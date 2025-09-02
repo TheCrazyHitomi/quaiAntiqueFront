@@ -4,7 +4,7 @@ import TitleGalerie from "../../components/Title/title-galerie";
 
 const GaleriePage = () => {
     return (
-        <div className="my-5">
+        <div>
             <TitleGalerie />
             <Galerie />
         </div>
