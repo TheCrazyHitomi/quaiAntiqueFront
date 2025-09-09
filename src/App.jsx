@@ -9,9 +9,8 @@ import Signin from './pages/auth/signin';
 import Signup from './pages/auth/signup';
 import AccountPage from './pages/auth/account';
 import EditPasswordPage from './pages/auth/editPassword';
-
-
-
+import ReservationPage from './pages/reservations/allResa';
+import ReserverPage from './pages/reservations/reserverPage';
 
 
 function App() {
@@ -27,7 +26,9 @@ function App() {
             <Route path="/inscription" element={<Signup />} />
             <Route path="/account" element={<AccountPage />} />
             <Route path="/editPassword" element={<EditPasswordPage />} />
-            <Route path="/404" element={<ErrorPage />} />
+            <Route path="/reservations" element={<ReservationPage />} />
+            <Route path="/reserver" element={<ReserverPage />} />
+            <Route path="/*" element={<ErrorPage />} />
           </Routes>
         <Footer />
       </BrowserRouter>
