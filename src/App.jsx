@@ -11,6 +11,7 @@ import AccountPage from './pages/auth/account';
 import EditPasswordPage from './pages/auth/editPassword';
 import ReservationPage from './pages/reservations/allResa';
 import ReserverPage from './pages/reservations/reserverPage';
+import CartePage from './pages/carte/cartePage';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/galerie" element={<Galerie />} />
+            <Route path="/carte" element={<CartePage />} />
             <Route path="/connexion" element={<Signin />} />
             <Route path="/inscription" element={<Signup />} />
             <Route path="/account" element={<AccountPage />} />

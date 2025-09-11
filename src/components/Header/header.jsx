@@ -14,7 +14,7 @@ const Header = () => {
           <Nav className="d-flex ms-auto align-items-end align-items-lg-center">
             <Nav.Link className="text-white fw-lighter" href="/">Accueil</Nav.Link>
             <Nav.Link className="text-white fw-lighter" href="/galerie">Galerie</Nav.Link>
-            <Nav.Link className="text-white fw-lighter" href="/">Notre Carte</Nav.Link>
+            <Nav.Link className="text-white fw-lighter" href="/carte">Notre Carte</Nav.Link>
             <Nav.Link className="text-white fw-lighter" href="/reservations">Réservation</Nav.Link>
             <Nav.Link className="text-white fw-lighter" href="/account">Mon Compte</Nav.Link>
             <Nav.Link className="text-light fw-medium " href="/connexion">Connexion</Nav.Link>
