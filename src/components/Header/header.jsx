@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import AuthNavLink from './AuthButton';
 
 const Header = () => {
     return (
@@ -17,7 +18,7 @@ const Header = () => {
             <Nav.Link className="text-white fw-lighter" href="/carte">Notre Carte</Nav.Link>
             <Nav.Link className="text-white fw-lighter" href="/reservations">Réservation</Nav.Link>
             <Nav.Link className="text-white fw-lighter" href="/account">Mon Compte</Nav.Link>
-            <Nav.Link className="text-light fw-medium " href="/connexion">Connexion</Nav.Link>
+            <AuthNavLink />
           </Nav>
         </Navbar.Collapse>
       </Container>

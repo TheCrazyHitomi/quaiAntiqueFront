@@ -1,77 +1,91 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+import { AuthContext } from '../../context/AuthContext';
+import { users } from '../../utils/users';
+
 function ConnexionForm() {
+
+    const { login } = useContext(AuthContext);
     
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-     const [isValidated, setIsValidated] = useState(false);
+    const [rememberMe, setRememberMe] = useState(false);
+    const [isValidated, setIsValidated] = useState(false);
+    const [loginError, setLoginError] = useState(false);
 
+
+
+    // -- Vérification des identifiants --
     const checkCredentials = (event) => {
-    event.preventDefault(); // Empêche le rechargement de la page
-    setIsValidated(true);
+        event.preventDefault(); // Empêche le rechargement de la page
+        setIsValidated(true);
 
-    // Ici, normalement → appel API avec fetch/axios
-    if (email === "pipoudou@test.com" && password === "pachiderme") {
-      const token =
-        "lkjsdngfljsqdnglkjsdbglkjqskjgkfjgbqslkfdgbskldfgdfgsdgf";
+        // On "cherche" l'utilisateur dans notre tableau
+    const userFound = users.find(
+        (u) => u.email === email && u.password === password
+    );
 
-      // Simule setToken()
-      localStorage.setItem("token", token);
+    if (userFound) {
+        console.log("Appel de login avec :", userFound.token, userFound.role);
+        login(userFound.token, userFound.role, rememberMe); // Met à jour le contexte global
 
-      // Simule setCookie()
-      document.cookie = `RoleCookieName=admin; max-age=${7 * 24 * 60 * 60}; path=/`;
-
-      // Redirection
-      window.location.replace("/");
-    } else {
-      // Les feedbacks invalides s’afficheront grâce à isInvalid
-    }
-  };
+        // Redirection
+            window.location.replace("/");
+        } else {
+            console.log("Identifiants invalides");
+            setLoginError(true);
+        }
+    };
 
     return (
         <Form className='border rounded p-4' noValidate onSubmit={checkCredentials}>
 
         {/* Email Form */}
-        <Form.Group className="mb-3" controlId="EmailInput">
+        <Form.Group className="mb-3" >
             <Form.Label>Adresse email</Form.Label>
             <Form.Control 
                 type="email" 
                 placeholder="Entrez votre email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                isInvalid={isValidated && email !== "pipoudou@test.com"}
+                isInvalid={isValidated && loginError}
                 required
             />
             <Form.Text className="text-muted">
             Nous ne partagerons jamais votre email avec qui que ce soit.
             </Form.Text>
             <Form.Control.Feedback type="invalid">
-              Adresse email incorrecte
+                Adresse email incorrecte
             </Form.Control.Feedback>
         </Form.Group>
 
 
         {/* Password Form */}
-        <Form.Group className="mb-3" controlId="PasswordInput">
+        <Form.Group className="mb-3">
             <Form.Label>Mot de passe</Form.Label>
             <Form.Control 
             type="password" 
             placeholder="Mot de passe" 
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            isInvalid={isValidated && password !== "pachiderme"}
+            isInvalid={isValidated && loginError}
             required
             />
             <Form.Control.Feedback type="invalid">
-              Mot de passe incorrect
+                Mot de passe incorrect
             </Form.Control.Feedback>
         </Form.Group>
 
         {/* Remember Me Checkbox */}
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Se souvenir de moi" />
+        <Form.Group className="mb-3">
+            <Form.Check 
+            type="checkbox" 
+            label="Se souvenir de moi" 
+            checked={rememberMe}
+            onChange={(e) => setRememberMe(e.target.checked)}
+            />
         </Form.Group>
 
         {/* Submit Button */}

@@ -65,19 +65,19 @@ function SignupForm() {
     return (
         <Form className='border rounded p-4' noValidate onSubmit={handleValidateForm}>
 
-            <Form.Group className="mb-3" controlId="formBasicNom">
+            <Form.Group className="mb-3" >
                 <Form.Label>Nom</Form.Label>
                 <Form.Control type="text" id="NomInput" placeholder="Entrez votre nom" required />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPrenom">
+            <Form.Group className="mb-3" >
                 <Form.Label>Prénom</Form.Label>
                 <Form.Control type="text" id="PrenomInput" placeholder="Entrez votre prénom" required/>
                 <Form.Control.Feedback>Yummy!</Form.Control.Feedback>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" >
                 <Form.Label>Adresse email</Form.Label>
                 <Form.Control 
                         type="email" 
@@ -93,7 +93,7 @@ function SignupForm() {
                 <Form.Control.Feedback type='invalid'>Adresse email invalide</Form.Control.Feedback>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3" >
                 <Form.Label>Mot de passe</Form.Label>
                 <Form.Control 
                         type="password" 
@@ -117,7 +117,7 @@ function SignupForm() {
                 </ul>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPasswordValidated">
+            <Form.Group className="mb-3" >
                 <Form.Label>Validez votre mot de passe</Form.Label>
                 <Form.Control 
                         type="password" 

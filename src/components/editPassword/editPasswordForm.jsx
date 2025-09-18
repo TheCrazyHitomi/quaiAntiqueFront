@@ -4,12 +4,12 @@ import Form from 'react-bootstrap/Form';
 const EditPasswordForm = () => {
     return (
         <Form className='border rounded p-4'>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3" >
                 <Form.Label>Mot de passe</Form.Label>
                 <Form.Control type="password" id= "PasswordInput" placeholder="Mot de passe" />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPasswordValidated">
+            <Form.Group className="mb-3" >
                 <Form.Label>Validez votre mot de passe</Form.Label>
                 <Form.Control type="password" id= "validatedPasswordInput" placeholder="Mot de passe" />
             </Form.Group>
