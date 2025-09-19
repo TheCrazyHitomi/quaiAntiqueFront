@@ -1,31 +1,29 @@
 
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
-import DeletePicForm from "./deletePicForm";
 import { useModal } from '../../context/ModalContext';
 
-const DeletePics = () => {
+
+const EditPics = () => {
     const { activeModal, closeModal } = useModal();
 
     return (
         <div>
             <Modal 
                 className="bg-primary bg-opacity-25" 
-                show={activeModal === "deletePic"} 
+                show={activeModal === "editPic"} 
                 onHide={closeModal} 
-                centered >
+                centered 
+            >
                 <Modal.Header closeButton>
-                    <Modal.Title >Êtes vous sûr de vouloir supprimer cette photo ?</Modal.Title>
+                    <Modal.Title>Edition de la Photo</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <DeletePicForm/>
+                    {/* composant pour éditer une photo = <EditPicForm /> */}
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={closeModal}>
-                        Annuler
-                    </Button>
                     <Button variant="primary" onClick={closeModal}>
-                        Supprimer
+                        Enregistrer
                     </Button>
                 </Modal.Footer>
             </Modal>
@@ -33,4 +31,4 @@ const DeletePics = () => {
     );
 }
 
-export default DeletePics;
+export default EditPics;

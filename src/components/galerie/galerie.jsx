@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
 import { AuthContext } from "../../context/AuthContext";
+import EditButton from '../crudButtons/editButton';
+import DeleteButton from '../crudButtons/deleteButton';
+import { useModal } from '../../context/ModalContext';
 
-const Galerie = ( { handleOpenModal, handleOpenDeleteModal } ) => {
+const Galerie = () => {
 
-      const { role } = useContext(AuthContext);
+    const { role } = useContext(AuthContext);
+    const { openModal } = useModal();
 
     return (
         <div className="container">
@@ -14,8 +18,8 @@ const Galerie = ( { handleOpenModal, handleOpenDeleteModal } ) => {
                         <p className="titre-image">Titre</p>
                         {role === "admin" && (
                         <div className="action-image-buttons">
-                            <button type="button" className="btn btn-lg fs-1" onClick={handleOpenModal}><i className="bi bi-pencil-fill"></i></button>
-                            <button type="button" className="btn btn-lg fs-1" onClick={handleOpenDeleteModal}><i className="bi bi-trash-fill"></i></button>
+                            <EditButton onClick={() => openModal("editPic")} />
+                            <DeleteButton onDelete={() => openModal("deletePic")} />
                         </div>
                     )}
                         <div className="image-overlay"></div>
@@ -27,8 +31,8 @@ const Galerie = ( { handleOpenModal, handleOpenDeleteModal } ) => {
                         <p className="titre-image">Titre</p>
                         {role === "admin" && (
                         <div className="action-image-buttons">
-                            <button type="button" className="btn btn-lg fs-1" onClick={handleOpenModal}><i className="bi bi-pencil-fill"></i></button>
-                            <button type="button" className="btn btn-lg fs-1" onClick={handleOpenDeleteModal}><i className="bi bi-trash-fill"></i></button>
+                            <EditButton onClick={() => openModal("editPic")} />
+                            <DeleteButton onDelete={() => openModal("deletePic")} />
                         </div>
                     )}
                         <div className="image-overlay"></div>
@@ -40,8 +44,8 @@ const Galerie = ( { handleOpenModal, handleOpenDeleteModal } ) => {
                         <p className="titre-image">Titre</p>
                         {role === "admin" && (
                         <div className="action-image-buttons">
-                            <button type="button" className="btn btn-lg fs-1" onClick={handleOpenModal}><i className="bi bi-pencil-fill"></i></button>
-                            <button type="button" className="btn btn-lg fs-1" onClick={handleOpenDeleteModal}><i className="bi bi-trash-fill"></i></button>
+                            <EditButton onClick={() => openModal("editPic")} />
+                            <DeleteButton onDelete={() => openModal("deletePic")} />
                         </div>
                     )}
                         <div className="image-overlay"></div>
@@ -53,8 +57,8 @@ const Galerie = ( { handleOpenModal, handleOpenDeleteModal } ) => {
                         <p className="titre-image">Titre</p>
                         {role === "admin" && (
                         <div className="action-image-buttons">
-                            <button type="button" className="btn btn-lg fs-1" onClick={handleOpenModal}><i className="bi bi-pencil-fill"></i></button>
-                            <button type="button" className="btn btn-lg fs-1" onClick={handleOpenDeleteModal}><i className="bi bi-trash-fill"></i></button>
+                            <EditButton onClick={() => openModal("editPic")} />
+                            <DeleteButton onDelete={() => openModal("deletePic")} />
                         </div>
                     )}
                         <div className="image-overlay"></div>

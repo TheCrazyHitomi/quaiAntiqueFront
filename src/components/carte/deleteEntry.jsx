@@ -1,37 +1,35 @@
 
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
-import AddPicForm from "./addPicForm";
-import AddButton from "../crudButtons/addButton";
+import DeleteButton from "../crudButtons/deleteButton";
 import { useModal } from '../../context/ModalContext';
 
 
-const AddPics = () => {
+const DeleteEntry = ( ) => {
     const { activeModal, closeModal, openModal } = useModal();
 
     return (
-        <div className="container text-end">
-                <div className='text-end mb-3'>
-                <AddButton onClick={() => openModal("addPic")} />
+
+        <div className="container ">
+
+            <div className='text-end mb-3'>
+                <DeleteButton onDelete={() => openModal("deleteEntry")} />
             </div>
-
-            {/* Formulaire d'ajout de photos */}
-
             <Modal 
                 className="bg-primary bg-opacity-25" 
-                show={activeModal === "addPic"} 
+                show={activeModal === "deleteEntry"} 
                 onHide={closeModal} 
                 centered 
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Edition Photo</Modal.Title>
+                    <Modal.Title>Suppression de la Carte</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <AddPicForm />
+                    {/* composant formulaire prérempli pour supprimer un plat de la carte = <DeleteEntryForm /> */}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={closeModal}>
-                        Ajouter
+                        Supprimer
                     </Button>
                 </Modal.Footer>
             </Modal>
@@ -39,4 +37,4 @@ const AddPics = () => {
     );
 }
 
-export default AddPics;
+export default DeleteEntry;

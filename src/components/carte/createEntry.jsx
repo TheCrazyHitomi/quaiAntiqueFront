@@ -1,33 +1,31 @@
 
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
-import AddPicForm from "./addPicForm";
-import AddButton from "../crudButtons/addButton";
+import AddButton from '../crudButtons/addButton';
 import { useModal } from '../../context/ModalContext';
 
 
-const AddPics = () => {
+const CreateEntry = () => {
     const { activeModal, closeModal, openModal } = useModal();
 
     return (
-        <div className="container text-end">
-                <div className='text-end mb-3'>
-                <AddButton onClick={() => openModal("addPic")} />
-            </div>
 
-            {/* Formulaire d'ajout de photos */}
+        <div className="container ">
+            <div className='text-end mb-3'>
+                <AddButton onClick={() => openModal("createEntry")} />
+            </div>
 
             <Modal 
                 className="bg-primary bg-opacity-25" 
-                show={activeModal === "addPic"} 
+                show={activeModal === "createEntry"} 
                 onHide={closeModal} 
                 centered 
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Edition Photo</Modal.Title>
+                    <Modal.Title>Edition de la Carte</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <AddPicForm />
+                    {/* composant pour ajouter un nouveau plat a la carte = <CreateEntryForm /> */}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={closeModal}>
@@ -39,4 +37,4 @@ const AddPics = () => {
     );
 }
 
-export default AddPics;
+export default CreateEntry;

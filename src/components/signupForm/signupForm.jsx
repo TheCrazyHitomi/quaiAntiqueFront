@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { ProgressBar } from 'react-bootstrap';
+import { validatePassword, getStrengthLabel, getStrengthVariant } from '../../helpers/validatePassword';
 
 
 function SignupForm() {
@@ -14,39 +15,7 @@ function SignupForm() {
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        const checkPasswordStrength = (password) => {
-            let strength = 0;
-            const conditions = {
-                length: password.length >= 6,
-                uppercase: /[A-Z]/.test(password),
-                lowercase: /[a-z]/.test(password),
-                number: /\d/.test(password),
-                special: /[!@#$%^&*]/.test(password)
-            }
-
-            Object.values(conditions).forEach(condition => {
-                if (condition) strength += 1;
-            });
-            return  {strength, conditions};
-        };
-
-        const {strength, conditions} = checkPasswordStrength(password);
-
-        const getStrengthLabel = () => {
-            if (strength === 5) return 'Very Strong';
-            if (strength === 4) return 'Strong';
-            if (strength === 3) return 'Medium';
-            if (strength === 2) return 'Weak';
-            return 'Very Weak';
-        };
-
-        const getStrengthVariant = () => {
-            if (strength === 5) return 'success';
-            if (strength === 4) return 'info';
-            if (strength === 3) return 'warning';
-            if (strength === 2) return 'danger';
-            return 'secondary';
-        };
+        const {strength, conditions} = validatePassword(password);
 
         const handleValidateForm = (event) => {
             const form = event.currentTarget;
@@ -104,9 +73,9 @@ function SignupForm() {
                         isInvalid={isValidated && strength < 3}
                         isValid={isValidated && strength >= 3} 
                         required />
-                <ProgressBar className='mt-3' now={strength * 20} variant={getStrengthVariant()} />
-                <Form.Text className={`fw-bold text-${getStrengthVariant()}`}>
-                    Force du mot de passe: {getStrengthLabel()}
+                <ProgressBar className='mt-3' now={strength * 20} variant={getStrengthVariant(strength)} />
+                <Form.Text className={`fw-bold text-${getStrengthVariant(strength)}`}>
+                    Force du mot de passe: {getStrengthLabel(strength)}
                 </Form.Text>
                 <ul className="mt-2">
                     <li className={conditions.length ? 'text-success' : 'text-danger'}>Au moins 6 caractères</li>
