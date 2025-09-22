@@ -6,14 +6,11 @@ import { useModal } from '../../context/ModalContext';
 
 
 const EditEntry = ( ) => {
-    const { activeModal, closeModal, openModal } = useModal();
+    const { activeModal, closeModal } = useModal();
 
     return (
 
         <div className="container ">
-            <div className='text-end mb-3'>
-                <EditButton onClick={() => openModal("editEntry")} />
-            </div>
 
             <Modal 
                 className="bg-primary bg-opacity-25" 

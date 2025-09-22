@@ -6,15 +6,12 @@ import { useModal } from '../../context/ModalContext';
 
 
 const DeleteEntry = ( ) => {
-    const { activeModal, closeModal, openModal } = useModal();
+    const { activeModal, closeModal } = useModal();
 
     return (
 
         <div className="container ">
 
-            <div className='text-end mb-3'>
-                <DeleteButton onDelete={() => openModal("deleteEntry")} />
-            </div>
             <Modal 
                 className="bg-primary bg-opacity-25" 
                 show={activeModal === "deleteEntry"} 

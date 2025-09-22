@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CreateEntry from './createEntry';
 import { AuthContext } from "../../context/AuthContext";
 import { useModal } from '../../context/ModalContext';
+import EditButton from '../crudButtons/editButton';
+import DeleteButton from '../crudButtons/deleteButton';
 import EditEntry from './editEntry';
 import DeleteEntry from './deleteEntry';
 
@@ -52,7 +54,7 @@ const desserts = carte.filter(item => item.catégorie === "desserts");
 const Carte = () => {
 
     const { role } = useContext(AuthContext);
-    const { activeModal, closeModal, openModal } = useModal();
+    const { activeModal, closeModal, openModal, selectedItem } = useModal();
 
     return (
         <div className="container my-5">
@@ -71,8 +73,10 @@ const Carte = () => {
                             <div className="d-flex ">
                                 {role === "admin" && (
                                     <div className='d-flex'>
-                                        <EditEntry showModal={activeModal === "editEntry"} openModal={openModal} closeModal={closeModal} />
-                                        <DeleteEntry showModal={activeModal === "deleteEntry"} openModal={openModal} closeModal={closeModal} />
+                                        <div className='text-end mb-3'>
+                                            <EditButton onClick={() => openModal("editEntry", entrée)} />
+                                            <DeleteButton onDelete={() => openModal("deleteEntry", entrée)} />
+                                        </div>
                                     </div>
                                 )}
                             </div>
@@ -81,6 +85,7 @@ const Carte = () => {
                     </li>
                 ))}
             </ul>
+
             <h1 className='text-center text-primary mt-5'>plats</h1>
             <hr className='mb-5'/>
             <ul>
@@ -89,7 +94,21 @@ const Carte = () => {
                         <li className='text-primary fw-bold fs-5 my-4'>{plat.sousCatégorie}</li>
                         <ul>
                             {plat.items.map((item) => (
-                                <li className='my-3' key={item.id}>{item.name}</li>
+                                <li className='my-3' key={item.id}>
+                                    <div className='d-flex justify-content-between align-items-center w-100'>
+                                        {item.name}
+                                        <div className="d-flex ">
+                                        {role === "admin" && (
+                                            <div className='d-flex'>
+                                                <div className='text-end mb-3'>
+                                                    <EditButton onClick={() => openModal("editEntry", item)} />
+                                                    <DeleteButton onDelete={() => openModal("deleteEntry", item)} />
+                                                </div>
+                                            </div>
+                                        )}
+                                        </div>
+                                    </div>
+                                </li>
                             ))}
                         </ul>
                     </React.Fragment>
@@ -99,16 +118,53 @@ const Carte = () => {
             <hr className='mb-5'/>
             <ul>
                 {fromages.map((fromage) => (
-                    <li className='my-3' key={fromage.id}>{fromage.name}</li>
+                    <li className='my-3' key={fromage.id}>
+                        <div className='d-flex justify-content-between align-items-center w-100'>
+                        {fromage.name}
+                        <div className="d-flex ">
+                            {role === "admin" && (
+                                <div className='d-flex'>
+                                    <div className='text-end mb-3'>
+                                        <EditButton onClick={() => openModal("editEntry", fromage)} />
+                                        <DeleteButton onDelete={() => openModal("deleteEntry", fromage)} />
+                                    </div>
+                                </div>
+                            )}
+                            </div>
+                        </div>
+                    </li>
                 ))}
             </ul>
             <h1 className='text-center text-primary mt-5'>desserts</h1>
             <hr className='mb-5'/>
             <ul>
                 {desserts.map((dessert) => (
-                    <li className='my-3' key={dessert.id}>{dessert.name}</li>
+                    <li className='my-3' key={dessert.id}>
+                        <div className='d-flex justify-content-between align-items-center w-100'>
+                            {dessert.name}
+                            <div className="d-flex ">
+                                {role === "admin" && (
+                                    <div className='d-flex'>
+                                        <div className='text-end mb-3'>
+                                            <EditButton onClick={() => openModal("editEntry", dessert)} />
+                                            <DeleteButton onDelete={() => openModal("deleteEntry", dessert)} />
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </li>
                 ))}
             </ul>
+
+            <EditEntry 
+                showModal={activeModal === "editEntry"} 
+                closeModal={closeModal} 
+                item={selectedItem} />
+            <DeleteEntry 
+                showModal={activeModal === "deleteEntry"} 
+                closeModal={closeModal} 
+                item={selectedItem} />
         </div>
     );
 }
